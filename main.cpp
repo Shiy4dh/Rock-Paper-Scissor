@@ -3,14 +3,14 @@
 
 int generateRand()
 {
-	std::random_device rd{};		// initialize the rd for using it as seed.
-	std::seed_seq ss{ rd(),rd(),rd(),rd(),rd(),rd(),rd(),rd(), };
+	std::random_device rd{};					// initialize the rd for using it as seed.
+	std::seed_seq ss{ rd(),rd(),rd(),rd(),rd(),rd(),rd(),rd() };	// we pass in 8 random seeds to prevent underseeding of the PRNG.
 
-	std::mt19937 mt{ ss };			// intialize the mersene twister with seed values.
+	std::mt19937 mt{ ss };						// intialize the mersene twister with seed values.
 
 	std::uniform_int_distribution<> roll{ 1,3 };
 
-	int systemChoice{0};				// stores a random int that the system chose.
+	int systemChoice{0};						// stores a random int that the system chose.
 	
 	for (int count{ 1 }; count <= 1; ++count)
 	{
@@ -19,7 +19,7 @@ int generateRand()
 
 	}
 
-	return systemChoice;				// return the systemChoice random number.
+	return systemChoice;						// return the systemChoice random number.
 }
 
 int getUserChoice()
